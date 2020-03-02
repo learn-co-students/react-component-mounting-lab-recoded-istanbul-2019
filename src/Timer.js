@@ -23,7 +23,7 @@ class Timer extends Component {
 
     const { time, color, className } = this.state
     return (
-      <section className="Timer" style={{background: color}} onClick={this.clockTick} >
+      <section className="Timer" style={{background: color}}>
 
         <h1>{ time }</h1>
         <button onClick={ this.stopClock }>Stop</button>
