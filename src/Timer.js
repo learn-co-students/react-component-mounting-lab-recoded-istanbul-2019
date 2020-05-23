@@ -32,10 +32,15 @@ class Timer extends Component {
 
   //clock functions
   clockTick = () => {
+    this.interval = setInterval(() => {
+
     this.setState(prevState => ({
       time: prevState.time+1
     }))
+
+   } ,1000)
   }
+  
 
   stopClock = () => {
     clearInterval(this.interval)
@@ -44,6 +49,14 @@ class Timer extends Component {
   // for the 'x' button,
   handleClose = () => {
     this.props.removeTimer(this.props.id)
+  }
+
+  componentDidMount(){
+    this.clockTick();
+  }
+
+  componentWillUnmount(){
+    this.stopClock();
   }
 
 
